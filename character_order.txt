@@ -1,0 +1,7 @@
+Character order ( in how significant a bit in a byte is, 8 = most, 1 = least )
+1 4
+2 5
+3 6
+7 8
+
+(Blame the unicode consortium)
