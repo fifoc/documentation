@@ -1,0 +1,48 @@
+FIF is a bytecode virtual machine based image codec.
+EVERY fif file must begin with the following ASCII string "FastIF"
+The 2 bytes after FastIF define OC Resolution (Actual x = 1st byte * 2, Actual y = 2nd byte * 4)
+
+There are the following opcodes:
+    0x01 - Set background
+        Arguments:
+            byte - Red
+            byte - Green
+            byte - Blue
+
+    0x02 - Set foreground
+        Arguments:
+            byte - Red
+            byte - Green
+            byte - Blue
+
+    0x10 - Set line
+        Arguments:
+            byte - X
+            byte - Y
+            byte - Size
+
+            Size*byte - Pixels to start setting starting at that position.
+                Pixels are encoded using the lower byte of a UTF-8 braille character (U+2800 to U+28FF)
+
+    0x11 - Fill
+        Arguments:
+            byte - X
+            byte - Y
+            byte - Width
+            byte - Height
+            byte - Lower byte of a UTF-8 braille character
+
+    0x12 - Sleep
+        Arguments:
+            byte - Time * 100 (in seconds)
+
+    0x13 - Set vertical line
+        Argument:
+            byte - X
+            byte - Y
+            byte - Size
+
+            Size*byte - Pixels to start setting starting at that position.
+                Pixels are encoded using the lower byte of a UTF-8 braille character (U+2800 to U+28FF)
+
+    0x20 - Exit execution
