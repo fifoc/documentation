@@ -46,3 +46,7 @@ There are the following opcodes:
                 Pixels are encoded using the lower byte of a UTF-8 braille character (U+2800 to U+28FF)
 
     0x20 - Exit execution
+    
+    0x40 - Decoder meta instruction
+        Argument:
+            8 bytes - Any data, up to the decoder to parse
